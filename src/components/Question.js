@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 
 function Question(props) {
     
-    const { setBudget } = props;
+    const { setBudget, setQuestionBudget } = props;
 
     // Definir el state
     const [ amount, setAmount] =  useState(0);
@@ -22,7 +22,8 @@ function Question(props) {
 
         //  Si se pasa la validacion
         setError(false);
-        setBudget( amount);
+        setBudget( amount );
+        setQuestionBudget(false);
     }
 
 
