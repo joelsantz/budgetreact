@@ -1,8 +1,10 @@
 import React, { Fragment, useState } from 'react';
+import Error from './Error';
+
 
 function Question(props) {
     
-    const { setBudget, setQuestionBudget } = props;
+    const { setBudget, setQuestionBudget, setRest } = props;
 
     // Definir el state
     const [ amount, setAmount] =  useState(0);
@@ -22,7 +24,8 @@ function Question(props) {
 
         //  Si se pasa la validacion
         setError(false);
-        setBudget( amount );
+        setBudget(amount);
+        setRest(amount);
         setQuestionBudget(false);
     }
 
@@ -31,7 +34,7 @@ function Question(props) {
         <Fragment>
             <h2>Put your Budget</h2>
 
-            {error ? <p className = "alert alert-danger error">Budget is Incorrect</p> : null}
+            {error ? <Error message = "Budget is incorrect" /> : null}
             <form
                 onSubmit = {addBudget}
             >
